@@ -10,23 +10,28 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/questions")
-@RequiredArgsConstructor
 public class QuestionController {
-
     private final QuestionService questionService;
 
+    public QuestionController(QuestionService questionService) {
+        this.questionService = questionService;
+    }
+
+    // 전체 질문 조회
     @GetMapping
     public List<Question> getQuestions() {
         return questionService.getAllQuestions();
     }
 
-    @GetMapping("/{id}")
-    public Question getQuestion(@PathVariable Long id) {
-        return questionService.getQuestion(id);
-    }
-
+    // 질문 생성
     @PostMapping
     public Question createQuestion(@RequestBody Question question) {
         return questionService.createQuestion(question);
+    }
+
+    // 투표하기
+    @PostMapping("/{questionId}/vote/{optionId}")
+    public Question vote(@PathVariable Long questionId, @PathVariable Long optionId) {
+        return questionService.vote(questionId, optionId);
     }
 }

@@ -21,7 +21,6 @@ public class Question {
 
     private String text;
 
-    @ElementCollection
-    private List<String> options = new ArrayList<>();
-    // 선택지 (예: "가", "나", "다")
+    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Option> options; // 투표 선택지
 }
