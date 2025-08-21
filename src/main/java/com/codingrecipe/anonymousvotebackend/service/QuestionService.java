@@ -26,6 +26,11 @@ public class QuestionService {
 
     // 질문 생성
     public Question createQuestion(Question question) {
+        if (question.getOptions() != null) {
+            for (Option option : question.getOptions()) {
+                option.setQuestion(question);
+            }
+        }
         return questionRepository.save(question);
     }
 
@@ -38,5 +43,15 @@ public class QuestionService {
             }
         }
         return questionRepository.save(question);
+    }
+
+    // 단일 질문 조회
+    public Question getQuestionById(Long id) {
+        return questionRepository.findById(id).orElseThrow(() -> new RuntimeException("Question not found"));
+    }
+
+    // 질문 삭제
+    public void deleteQuestion(Long id) {
+        questionRepository.deleteById(id);
     }
 }
