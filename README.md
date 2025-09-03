@@ -4,6 +4,13 @@ React와 Spring Boot를 기반으로 제작된 간단한 익명 투표 웹 애�
 
 <br/>
 
+## 📂 주요 화면
+
+<img width="605" height="316" alt="image" src="https://github.com/user-attachments/assets/0e7b0b18-4459-4e9c-90a4-97b18db45951" />
+
+
+<br/>
+
 ## ✨ 주요 기능
 
 -   **🗳️ 투표 생성**: 누구나 새로운 투표 주제와 여러 선택지를 만들어 등록할 수 있습니다.
